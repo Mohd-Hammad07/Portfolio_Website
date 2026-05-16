@@ -661,23 +661,22 @@
 
     .tool-icon {
       position: absolute;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 16px 32px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: float-icon 6s ease-in-out infinite;
-      pointer-events: auto;
+      animation: float-icon 3s ease-in-out infinite;
     }
 
     .tool-icon img {
       width: 60%;
       height: 60%;
       object-fit: contain;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.04));
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -691,7 +690,7 @@
       }
 
       50% {
-        transform: translateY(-8px);
+        transform: translateY(-18px);
       }
 
       100% {
@@ -705,7 +704,7 @@
       }
 
       50% {
-        transform: translateY(8px);
+        transform: translateY(18px);
       }
 
       100% {
@@ -2184,27 +2183,20 @@
       <div class="hero-image-wrap"
         style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; animation: fade-in 1.2s ease-out forwards; animation-delay: 0.3s; opacity: 0;">
 
-        <!-- Floating Tech Icons (Clustered Top-Right) -->
-        <div class="floating-tech-container" style="position: absolute; top: 20px; right: 0; width: 280px; height: 180px; z-index: 10; pointer-events: none;">
-          <!-- Excel → upper-left of the cluster -->
+        <!-- Floating Tech Icons (Desktop only) -->
+        <div class="floating-tech-container">
           <div class="tool-icon"
-            style="width: 55px; height: 55px; top: 30px; left: 0; animation-delay: 0s; border-radius: 14px; z-index: 5;"
-            title="Excel"><img src="https://img.icons8.com/color/144/microsoft-excel-2019--v1.png" alt="Excel" /></div>
-            
-          <!-- Power BI → upper-center/right -->
-          <div class="tool-icon"
-            style="width: 70px; height: 70px; top: 0px; left: 90px; animation-delay: 0.8s; border-radius: 18px; animation-name: float-icon-alt; z-index: 5;"
+            style="width: 85px; height: 85px; top: -15%; right: 5%; animation-delay: 0s; border-radius: 22px; z-index: 5;"
             title="Power BI"><img src="https://img.icons8.com/color/144/power-bi.png" alt="Power BI" /></div>
-            
-          <!-- Python → far-right but aligned within cluster -->
           <div class="tool-icon"
-            style="width: 60px; height: 60px; top: 50px; right: 10px; animation-delay: 1.6s; border-radius: 16px; z-index: 5;"
+            style="width: 70px; height: 70px; top: 5%; right: -25%; animation-delay: 0.8s; border-radius: 18px; animation-name: float-icon-alt; z-index: 5;"
             title="Python"><img src="https://img.icons8.com/color/144/python--v1.png" alt="Python" /></div>
-            
-          <!-- SQL → slightly lower-right beneath the cluster -->
           <div class="tool-icon"
-            style="width: 50px; height: 50px; bottom: 10px; left: 120px; animation-delay: 2.4s; border-radius: 14px; animation-name: float-icon-alt; z-index: 5;"
+            style="width: 65px; height: 65px; top: 50%; right: -30%; animation-delay: 1.6s; border-radius: 16px; z-index: 5;"
             title="SQL"><img src="https://img.icons8.com/color/144/sql.png" alt="SQL" /></div>
+          <div class="tool-icon"
+            style="width: 75px; height: 75px; top: -10%; left: -10%; animation-delay: 2.4s; border-radius: 20px; animation-name: float-icon-alt; z-index: 5;"
+            title="Excel"><img src="https://img.icons8.com/color/144/microsoft-excel-2019--v1.png" alt="Excel" /></div>
         </div>
 
         <!-- Image + lightweight glow -->
