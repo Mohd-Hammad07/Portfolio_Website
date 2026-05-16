@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -2304,21 +2304,22 @@
       <div class="contact-grid" style="gap: 40px; align-items: start;">
         <div class="contact-form" data-aos="fade-right"
           style="background: var(--card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow);">
-          <form id="contactForm">
+          <form id="contactForm" name="contact" method="POST" data-netlify="true" action="/success.html">
+            <input type="hidden" name="form-name" value="contact" />
             <div class="form-group" style="margin-bottom: 20px;">
-              <input type="text" id="fname" placeholder="Full Name" required
+              <input type="text" id="fname" name="name" placeholder="Full Name" required
                 style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
             </div>
             <div class="form-group" style="margin-bottom: 20px;">
-              <input type="email" id="femail" placeholder="Email Address" required
+              <input type="email" id="femail" name="email" placeholder="Email Address" required
                 style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
             </div>
             <div class="form-group" style="margin-bottom: 20px;">
-              <input type="text" id="fsubject" placeholder="Subject" required
+              <input type="text" id="fsubject" name="subject" placeholder="Subject" required
                 style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
             </div>
             <div class="form-group" style="margin-bottom: 24px;">
-              <textarea id="fmessage" placeholder="Message" required
+              <textarea id="fmessage" name="message" placeholder="Message" required
                 style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; min-height: 140px; resize: none; transition: all 0.2s;"></textarea>
             </div>
             <button type="submit" class="form-submit"
@@ -2493,15 +2494,7 @@
       observer.observe(tl);
     })();
 
-    // Contact form  mailto
-    document.getElementById('contactForm') && document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = document.getElementById('fname').value;
-      var sub = document.getElementById('fsubject').value;
-      var msg = document.getElementById('fmessage').value;
-      var mailto = 'mailto:mohdhammad616@gmail.comsubject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent('Hi Hammad,\n\n' + msg + '\n\n- ' + name);
-      window.location.href = mailto;
-    });
+    // Contact form — handled natively by Netlify Forms (no JS intercept needed)
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
