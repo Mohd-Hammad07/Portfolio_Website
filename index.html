@@ -2304,7 +2304,7 @@
       <div class="contact-grid" style="gap: 40px; align-items: start;">
         <div class="contact-form" data-aos="fade-right"
           style="background: var(--card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow);">
-          <form id="contactForm" name="contact" method="POST" data-netlify="true" action="/success.html">
+          <form id="contactForm" name="contact" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="contact" />
             <div class="form-group" style="margin-bottom: 20px;">
               <input type="text" id="fname" name="name" placeholder="Full Name" required
@@ -2494,7 +2494,70 @@
       observer.observe(tl);
     })();
 
-    // Contact form — handled natively by Netlify Forms (no JS intercept needed)
+    // Contact form — AJAX submission to Netlify Forms (avoids page redirect / 404)
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      function encode(data) {
+        return Object.keys(data)
+          .map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); })
+          .join('&');
+      }
+
+      function showBanner(success) {
+        var existing = document.getElementById('form-banner');
+        if (existing) existing.remove();
+        var banner = document.createElement('div');
+        banner.id = 'form-banner';
+        banner.style.cssText = [
+          'margin-top:20px', 'padding:16px 20px', 'border-radius:12px',
+          'font-family:Inter,sans-serif', 'font-size:0.95rem', 'font-weight:500',
+          'text-align:center', 'animation:fade-up 0.4s ease forwards',
+          success
+            ? 'background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;'
+            : 'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;'
+        ].join(';');
+        banner.textContent = success
+          ? '✓  Message sent! I\'ll get back to you soon.'
+          : '✗  Something went wrong. Please try again or email me directly.';
+        form.parentNode.insertBefore(banner, form.nextSibling);
+        setTimeout(function () { if (banner.parentNode) banner.remove(); }, 6000);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Sending… <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({
+            'form-name': 'contact',
+            'name':    document.getElementById('fname').value,
+            'email':   document.getElementById('femail').value,
+            'subject': document.getElementById('fsubject').value,
+            'message': document.getElementById('fmessage').value
+          })
+        })
+        .then(function (res) {
+          if (res.ok) {
+            showBanner(true);
+            form.reset();
+          } else {
+            showBanner(false);
+          }
+        })
+        .catch(function () { showBanner(false); })
+        .finally(function () {
+          btn.disabled = false;
+          btn.innerHTML = origText;
+        });
+      });
+    })();
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
