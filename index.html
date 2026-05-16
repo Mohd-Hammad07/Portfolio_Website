@@ -661,22 +661,23 @@
 
     .tool-icon {
       position: absolute;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 16px 32px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: float-icon 3s ease-in-out infinite;
+      animation: float-icon 6s ease-in-out infinite;
+      pointer-events: auto;
     }
 
     .tool-icon img {
       width: 60%;
       height: 60%;
       object-fit: contain;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.04));
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -690,7 +691,7 @@
       }
 
       50% {
-        transform: translateY(-18px);
+        transform: translateY(-8px);
       }
 
       100% {
@@ -704,7 +705,7 @@
       }
 
       50% {
-        transform: translateY(18px);
+        transform: translateY(8px);
       }
 
       100% {
@@ -1773,10 +1774,10 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 40px;
-      max-width: 1300px;
+      gap: 60px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 5% 60px 5%;
       min-height: 100vh;
@@ -1806,15 +1807,15 @@
     }
 
     .btn-download-v3 {
-      background: linear-gradient(135deg, #111827, #1f2937);
+      background: linear-gradient(135deg, #111827, #374151);
       color: #fff;
-      box-shadow: 0 4px 14px rgba(17, 24, 39, 0.25);
+      box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
       padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-family: 'Inter', sans-serif;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       width: auto;
       text-align: center;
       display: inline-flex;
@@ -1823,24 +1824,32 @@
     }
 
     .btn-download-v3:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.2);
     }
 
     .btn-view-v3 {
-      border: 1px solid #E5E7EB;
-      color: #111827;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      color: #374151;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
       padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-family: 'Inter', sans-serif;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .btn-view-v3:hover {
+      background: #fff;
+      color: #111827;
+      border-color: #D1D5DB;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(17, 24, 39, 0.05);
     }
 
     .btn-view-v3:hover {
@@ -1872,14 +1881,13 @@
 
     .hero-glow-v3 {
       position: absolute;
-      inset: -20px;
+      inset: -10px;
       border-radius: 40px;
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.35) 0%, rgba(168, 85, 247, 0.25) 50%, rgba(59, 130, 246, 0.3) 100%);
-      background-size: 300% 300%;
-      filter: blur(28px);
-      animation: gradient-flow 6s ease infinite;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(59, 130, 246, 0.1) 100%);
+      filter: blur(35px);
+      animation: gradient-flow 8s ease infinite;
       z-index: -1;
-      opacity: 0.9;
+      opacity: 0.6;
     }
 
     .hero-img-v3 {
@@ -2082,7 +2090,7 @@
 
   <!-- NAVBAR -->
   <nav id="navbar">
-    <a href="#home" class="nav-logo load-anim load-1"><span>M</span><span>H</span></a>
+    <a href="#home" class="nav-logo"><span>M</span><span>H</span></a>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -2092,7 +2100,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="https://github.com/Mohd-Hammad07/Resume/raw/main/Mohd_Hammad_Resume.pdf"
-      class="nav-resume-btn load-anim load-2" download target="_blank" rel="noopener noreferrer"> Resume</a>
+      class="nav-resume-btn" download target="_blank" rel="noopener noreferrer"> Resume</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -2124,13 +2132,7 @@
       style="position: absolute; inset: 0; background-image: linear-gradient(rgba(79, 70, 229, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229, 0.04) 1px, transparent 1px); background-size: 50px 50px; z-index: 0; animation: bg-pan 30s linear infinite;">
     </div>
 
-    <!-- Animated Glowing Orbs -->
-    <div
-      style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(79,70,229,0.1) 0%, transparent 60%); border-radius: 50%; filter: blur(60px); animation: float-glow 15s ease-in-out infinite alternate; top: -10%; left: -5%; z-index: 0; pointer-events: none;">
-    </div>
-    <div
-      style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 60%); border-radius: 50%; filter: blur(60px); animation: float-glow-reverse 18s ease-in-out infinite alternate; bottom: -10%; right: 10%; z-index: 0; pointer-events: none;">
-    </div>
+
 
     <!-- Hero Content Wrap -->
     <div class="hero-inner-v3">
@@ -2145,7 +2147,7 @@
           <span id="typed-roles"></span>
         </div>
         <p class="hero-bio"
-          style="font-size: 1.15rem; max-width: 580px; color: #4B5563; line-height: 1.8; animation: fade-up 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;">
+          style="font-size: 1.15rem; max-width: 480px; color: #4B5563; line-height: 1.6; animation: fade-up 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;">
           Business Intelligence &amp; Data Analytics professional with a Post Graduation in Business Analytics. Skilled
           in Power BI, SQL, Python, and automated dashboard development to sync complex datasets into actionable
           insights. Passionate about transforming raw data into business intelligence that drives impactful decisions
@@ -2182,20 +2184,27 @@
       <div class="hero-image-wrap"
         style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; animation: fade-in 1.2s ease-out forwards; animation-delay: 0.3s; opacity: 0;">
 
-        <!-- Floating Tech Icons (Desktop only) -->
-        <div class="floating-tech-container">
+        <!-- Floating Tech Icons (Clustered Top-Right) -->
+        <div class="floating-tech-container" style="position: absolute; top: 20px; right: 0; width: 280px; height: 180px; z-index: 10; pointer-events: none;">
+          <!-- Excel → upper-left of the cluster -->
           <div class="tool-icon"
-            style="width: 85px; height: 85px; top: 10%; right: 15%; animation-delay: 0s; border-radius: 22px; z-index: 5;"
-            title="Power BI"><img src="https://img.icons8.com/color/144/power-bi.png" alt="Power BI" /></div>
-          <div class="tool-icon"
-            style="width: 70px; height: 70px; top: -5%; right: 5%; animation-delay: 0.8s; border-radius: 18px; animation-name: float-icon-alt; z-index: 5;"
-            title="Python"><img src="https://img.icons8.com/color/144/python--v1.png" alt="Python" /></div>
-          <div class="tool-icon"
-            style="width: 65px; height: 65px; top: 25%; right: 5%; animation-delay: 1.6s; border-radius: 16px; z-index: 5;"
-            title="SQL"><img src="https://img.icons8.com/color/144/sql.png" alt="SQL" /></div>
-          <div class="tool-icon"
-            style="width: 75px; height: 75px; top: 8%; right: 40%; animation-delay: 2.4s; border-radius: 20px; animation-name: float-icon-alt; z-index: 5;"
+            style="width: 55px; height: 55px; top: 30px; left: 0; animation-delay: 0s; border-radius: 14px; z-index: 5;"
             title="Excel"><img src="https://img.icons8.com/color/144/microsoft-excel-2019--v1.png" alt="Excel" /></div>
+            
+          <!-- Power BI → upper-center/right -->
+          <div class="tool-icon"
+            style="width: 70px; height: 70px; top: 0px; left: 90px; animation-delay: 0.8s; border-radius: 18px; animation-name: float-icon-alt; z-index: 5;"
+            title="Power BI"><img src="https://img.icons8.com/color/144/power-bi.png" alt="Power BI" /></div>
+            
+          <!-- Python → far-right but aligned within cluster -->
+          <div class="tool-icon"
+            style="width: 60px; height: 60px; top: 50px; right: 10px; animation-delay: 1.6s; border-radius: 16px; z-index: 5;"
+            title="Python"><img src="https://img.icons8.com/color/144/python--v1.png" alt="Python" /></div>
+            
+          <!-- SQL → slightly lower-right beneath the cluster -->
+          <div class="tool-icon"
+            style="width: 50px; height: 50px; bottom: 10px; left: 120px; animation-delay: 2.4s; border-radius: 14px; animation-name: float-icon-alt; z-index: 5;"
+            title="SQL"><img src="https://img.icons8.com/color/144/sql.png" alt="SQL" /></div>
         </div>
 
         <!-- Image + lightweight glow -->
@@ -2221,11 +2230,11 @@
 
           <!-- Glassmorphism Frame -->
           <div
-            style="position: relative; z-index: 1; padding: 12px; border-radius: 32px; background: rgba(255,255,255,0.22); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 24px 56px rgba(17,24,39,0.13), inset 0 0 18px rgba(255,255,255,0.5); transform: translateZ(0); will-change: transform;">
-            <img src="Photo/Photo.jpg" alt="Mohd Hammad" fetchpriority="high" decoding="async" class="hero-img-v3" />
+            style="position: relative; z-index: 1; padding: 8px; border-radius: 28px; background: rgba(255,255,255,0.05); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 24px 56px rgba(17,24,39,0.08), inset 0 0 18px rgba(255,255,255,0.2); transform: translateZ(0); will-change: transform;">
+            <img src="Photo/Photo.jpg" alt="Mohd Hammad" fetchpriority="high" decoding="async" class="hero-img-v3" style="border-radius: 20px;" />
             <!-- Shimmer border -->
             <div
-              style="position: absolute; inset: 0; border-radius: 32px; border: 2px solid transparent; background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.1), rgba(255,255,255,0.9)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude; animation: shimmer-border 3s linear infinite; z-index: 2; pointer-events: none;">
+              style="position: absolute; inset: 0; border-radius: 28px; border: 1px solid transparent; background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.05), rgba(255,255,255,0.4)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude; animation: shimmer-border 4s linear infinite; z-index: 2; pointer-events: none;">
             </div>
           </div>
 
