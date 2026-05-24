@@ -1129,153 +1129,105 @@
       background: var(--bg2);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 60px;
     }
 
-    .contact-info-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .contact-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 860px;
+      margin: 0 auto 40px;
     }
 
     .contact-card {
       background: var(--card);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 12px;
-      padding: 18px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 32px 24px;
       box-shadow: var(--shadow);
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 14px;
       text-decoration: none;
       color: var(--text);
-      transition: all 0.2s;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      border-top: 3px solid var(--blue);
+      text-align: center;
     }
 
     .contact-card:hover {
-      transform: translateX(6px);
-      border-left: 3px solid var(--blue);
-    }
-
-    .contact-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--bg3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: var(--blue);
-      flex-shrink: 0;
-    }
-
-    .contact-card-text strong {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--navy);
-    }
-
-    .contact-card-text span {
-      font-size: 0.82rem;
-      color: #6b7280;
-    }
-
-    /* FORM */
-    .contact-form {
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: var(--radius);
-      padding: 36px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-group {
-      position: relative;
-      margin-bottom: 24px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 16px 14px 8px;
-      border: 1.5px solid #e5e7eb;
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      background: var(--bg2);
-      outline: none;
-      transition: border 0.2s;
-      resize: none;
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(79, 70, 229, 0.15);
       border-color: var(--blue);
     }
 
-    .form-group label {
-      position: absolute;
-      top: 50%;
-      left: 14px;
-      transform: translateY(-50%);
-      font-size: 0.92rem;
-      color: #9ca3af;
-      pointer-events: none;
-      transition: all 0.2s;
-      background: transparent;
-    }
-
-    .form-group textarea+label,
-    .form-group textarea~label {
-      top: 16px;
-      transform: none;
-    }
-
-    .form-group input:focus~label,
-    .form-group input:not(:placeholder-shown)~label,
-    .form-group textarea:focus~label,
-    .form-group textarea:not(:placeholder-shown)~label {
-      top: 6px;
-      font-size: 0.72rem;
+    .contact-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #EEF2FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
       color: var(--blue);
-      transform: translateY(0);
+      flex-shrink: 0;
+      transition: background 0.25s, color 0.25s;
     }
 
-    .form-submit {
-      width: 100%;
-      background: var(--navy);
-      color: #fff;
-      border: none;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .form-submit:hover {
+    .contact-card:hover .contact-card-icon {
       background: var(--blue);
-      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    .contact-card-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .contact-card-value {
+      font-size: 0.82rem;
+      color: #6b7280;
+      word-break: break-all;
+    }
+
+    .contact-resume-wrap {
+      text-align: center;
+    }
+
+    .btn-resume-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--navy), #1f2937);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.2);
+    }
+
+    .btn-resume-contact:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.3);
     }
 
     @media(max-width:768px) {
-      .contact-grid {
+      .contact-cards-row {
         grid-template-columns: 1fr;
+        max-width: 400px;
       }
     }
 
@@ -1795,12 +1747,9 @@
       }
 
 
-      .contact-grid {
+      .contact-cards-row {
         grid-template-columns: 1fr !important;
-      }
-      
-      .contact-form {
-        padding: 28px !important;
+        max-width: 100% !important;
       }
 
       .nav-links,
@@ -2296,80 +2245,50 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
-      <div data-aos="fade-up" style="text-align: center; margin-bottom: 60px;">
-        <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 16px;">Let's <span>Connect</span></h2>
-        <p style="color:#4b5563; max-width:600px; margin: 0 auto; line-height:1.8; font-size: 1.05rem;">Open to Business
-          Analyst, Data Analyst, and BI Analyst opportunities. Let's connect and build impactful solutions together.</p>
+      <div class="contact-intro" data-aos="fade-up">
+        <p class="section-tag">Get In Touch</p>
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div class="section-line" style="margin: 0 auto 24px;"></div>
+        <p style="color:#4b5563; max-width:580px; margin: 0 auto; line-height:1.8; font-size: 1.05rem;">Open to Business Analyst, Data Analyst, and BI Analyst opportunities. Reach out through any of the channels below — I'd love to connect.</p>
       </div>
-      <div class="contact-grid" style="gap: 40px; align-items: start;">
-        <div class="contact-form" data-aos="fade-right"
-          style="background: var(--card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow);">
-          <form id="contactForm" name="contact" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact" />
-            <div class="form-group" style="margin-bottom: 20px;">
-              <input type="text" id="fname" name="name" placeholder="Full Name" required
-                style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-              <input type="email" id="femail" name="email" placeholder="Email Address" required
-                style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-              <input type="text" id="fsubject" name="subject" placeholder="Subject" required
-                style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; transition: all 0.2s;" />
-            </div>
-            <div class="form-group" style="margin-bottom: 24px;">
-              <textarea id="fmessage" name="message" placeholder="Message" required
-                style="width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid #E5E7EB; background: #fff; font-family: 'Inter', sans-serif; min-height: 140px; resize: none; transition: all 0.2s;"></textarea>
-            </div>
-            <button type="submit" class="form-submit"
-              style="width: 100%; padding: 16px; border-radius: 12px; background: linear-gradient(135deg, #111827, #1f2937); color: #fff; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 14px rgba(17,24,39,0.2);"
-              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(17,24,39,0.3)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(17,24,39,0.2)';">Send
-              Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
-          </form>
-        </div>
 
-        <div class="contact-info-cards" data-aos="fade-left"
-          style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <a href="mailto:mohdhammad616@gmail.com" class="contact-card"
-            style="background: var(--card); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow);"
-            onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div
-              style="width: 48px; height: 48px; border-radius: 50%; background: #EEF2FF; color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <span style="color: #111827; font-weight: 500; font-size: 0.95rem;">Email</span>
-          </a>
-          <a href="https://www.linkedin.com/in/mohd-hammad-business-analytics/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bzvbn5RiqSR%2BAJOryrbq3%2Bw%3D%3D"
-            target="_blank" rel="noopener noreferrer" class="contact-card"
-            style="background: var(--card); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow);"
-            onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div
-              style="width: 48px; height: 48px; border-radius: 50%; background: #EEF2FF; color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
-              <i class="fab fa-linkedin-in"></i>
-            </div>
-            <span style="color: #111827; font-weight: 500; font-size: 0.95rem;">LinkedIn</span>
-          </a>
-          <a href="https://github.com/Mohd-Hammad07" target="_blank" rel="noopener noreferrer" class="contact-card"
-            style="background: var(--card); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow);"
-            onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div
-              style="width: 48px; height: 48px; border-radius: 50%; background: #EEF2FF; color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
-              <i class="fab fa-github"></i>
-            </div>
-            <span style="color: #111827; font-weight: 500; font-size: 0.95rem;">GitHub</span>
-          </a>
-          <div class="contact-card"
-            style="background: var(--card); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow);"
-            onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div
-              style="width: 48px; height: 48px; border-radius: 50%; background: #EEF2FF; color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <span style="color: #111827; font-weight: 500; font-size: 0.95rem;">New Delhi, India</span>
+      <div class="contact-cards-row" data-aos="fade-up" data-aos-delay="100">
+        <!-- Email -->
+        <a href="mailto:mohdhammad616@gmail.com" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fas fa-envelope"></i>
           </div>
-        </div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">mohdhammad616@gmail.com</div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/mohd-hammad-business-analytics/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bzvbn5RiqSR%2BAJOryrbq3%2Bw%3D%3D"
+          target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">mohd-hammad-business-analytics</div>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Mohd-Hammad07" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">github.com/Mohd-Hammad07</div>
+        </a>
+      </div>
+
+      <!-- Resume Download -->
+      <div class="contact-resume-wrap" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://github.com/Mohd-Hammad07/Resume/raw/main/Mohd_Hammad_Resume.pdf"
+          download target="_blank" rel="noopener noreferrer" class="btn-resume-contact">
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
       </div>
     </div>
   </section>
@@ -2494,70 +2413,7 @@
       observer.observe(tl);
     })();
 
-    // Contact form — AJAX submission to Netlify Forms (avoids page redirect / 404)
-    (function () {
-      var form = document.getElementById('contactForm');
-      if (!form) return;
-
-      function encode(data) {
-        return Object.keys(data)
-          .map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); })
-          .join('&');
-      }
-
-      function showBanner(success) {
-        var existing = document.getElementById('form-banner');
-        if (existing) existing.remove();
-        var banner = document.createElement('div');
-        banner.id = 'form-banner';
-        banner.style.cssText = [
-          'margin-top:20px', 'padding:16px 20px', 'border-radius:12px',
-          'font-family:Inter,sans-serif', 'font-size:0.95rem', 'font-weight:500',
-          'text-align:center', 'animation:fade-up 0.4s ease forwards',
-          success
-            ? 'background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;'
-            : 'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;'
-        ].join(';');
-        banner.textContent = success
-          ? '✓  Message sent! I\'ll get back to you soon.'
-          : '✗  Something went wrong. Please try again or email me directly.';
-        form.parentNode.insertBefore(banner, form.nextSibling);
-        setTimeout(function () { if (banner.parentNode) banner.remove(); }, 6000);
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = form.querySelector('button[type="submit"]');
-        var origText = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = 'Sending… <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
-
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({
-            'form-name': 'contact',
-            'name':    document.getElementById('fname').value,
-            'email':   document.getElementById('femail').value,
-            'subject': document.getElementById('fsubject').value,
-            'message': document.getElementById('fmessage').value
-          })
-        })
-        .then(function (res) {
-          if (res.ok) {
-            showBanner(true);
-            form.reset();
-          } else {
-            showBanner(false);
-          }
-        })
-        .catch(function () { showBanner(false); })
-        .finally(function () {
-          btn.disabled = false;
-          btn.innerHTML = origText;
-        });
-      });
-    })();
+    // No form submission handler needed — contact section uses direct links only
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
@@ -2594,8 +2450,7 @@
     });
   </script>
 
-  <!-- Typed.js for animated roles -->
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <!-- Typed.js for animated roles (loaded once above) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (document.getElementById('typed-roles')) {
